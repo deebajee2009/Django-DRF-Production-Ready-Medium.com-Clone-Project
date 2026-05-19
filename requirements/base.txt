@@ -12,3 +12,7 @@ pillow==12.2.0
 argon2-cffi==25.1.0
 pytz==2026.2
 django-taggit==6.1.0
+redis
+celery
+flower
+django-celery-email
