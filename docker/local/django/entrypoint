@@ -39,3 +39,17 @@ END
 >&2 echo "PostgreSQL is available"
 
 exec "$@"
+
+
+# Alternative
+
+# set -e
+
+# # Wait for the database…
+# until pg_isready -h "$POSTGRES_HOST" -U "$POSTGRES_USER" -d "$POSTGRES_DB"; do
+#   echo "Waiting for PostgreSQL..."
+#   sleep 2
+# done
+
+# # Then execute whatever was given as arguments (the CMD)
+# exec "$@"
