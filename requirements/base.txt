@@ -12,7 +12,10 @@ pillow==12.2.0
 argon2-cffi==25.1.0
 pytz==2026.2
 django-taggit==6.1.0
-redis
-celery
-flower
-django-celery-email
+redis==7.4.0
+celery==5.6.3
+flower==2.0.1
+django-celery-email==3.0.0
+django-allauth==65.16.1
+djangorestframework-simplejwt==5.5.1
+dj-rest-auth==7.2.0
