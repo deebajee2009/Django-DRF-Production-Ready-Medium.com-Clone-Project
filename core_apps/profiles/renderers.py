@@ -4,6 +4,7 @@ Profile app renderer.
 import json
 from rest_framework.renderers import JSONRenderer
 
+
 class ProfileJSONRenderer(JSONRenderer):
     """
     renderer

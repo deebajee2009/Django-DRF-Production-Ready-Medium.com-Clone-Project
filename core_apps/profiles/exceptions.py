@@ -1,7 +1,8 @@
 """
 Exception handler for Profile app.
 """
-from rest_framework import APIException
+from rest_framework.exceptions import APIException
+
 
 class CantFollowYourself(APIException):
     """

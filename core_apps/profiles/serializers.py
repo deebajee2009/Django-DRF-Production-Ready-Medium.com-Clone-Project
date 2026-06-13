@@ -63,6 +63,7 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
             "twitter_handle"
         ]
 
+
 class FollowingSerializer(serializers.ModelSerializer):
     """
     Docstring for FollowingSerializer
