@@ -32,6 +32,7 @@ urlpatterns = [
          name="password_reset_confirm"),
     path("api/v1/profiles/", include("core_apps.profiles.urls")),
     path("api/v1/article/", include("core_apps.articles.urls")),
+    path("api/v1/ratings/", include("core_apps.ratings.urls")),
 ]
 
 admin.site.site_header = "Authors learning project API Admin"

@@ -6,6 +6,7 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from taggit.managers import TaggableManager
+from django.db.models import Avg
 
 from core_apps.common.models import TimeStampedModel
 from services.read_time_engine import ArticleReadTimeEngine
@@ -36,6 +37,23 @@ class Article(TimeStampedModel):
 
     def view_count(self):
         return self.article_views.count()
+
+    def average_rating(self):
+        # previous version
+        # ratings = self.ratings.all()
+
+        # if ratings.count() > 0:
+        #     total_rating = sum(rating.rating for rating in ratings)
+        #     average_rating = total_rating / ratings.count()
+        #     return round(average_rating, 2)
+        # return None
+
+        # better version
+        avg = self.ratings.aggregate(
+            avg_rating=Avg("rating")
+        )["avg_rating"]
+
+        return round(avg, 2) if avg is not None else None
 
 
 class ArticleView(TimeStampedModel):
