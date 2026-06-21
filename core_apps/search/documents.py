@@ -1,8 +1,10 @@
 """
 Search app elastic search documents
 """
+
 from django_elasticsearch_dsl import Document, fields
 from django_elasticsearch_dsl.registries import registry
+
 from core_apps.articles.models import Article
 
 

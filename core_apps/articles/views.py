@@ -99,7 +99,7 @@ class ClapArticleView(generics.CreateAPIView, generics.DestroyAPIView):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        clap = Clap.objects.create(user=user, article=article)
+        Clap.objects.create(user=user, article=article)
 
         return Response(
             {"detail": "You have already clapped!"}, status=status.HTTP_201_CREATED

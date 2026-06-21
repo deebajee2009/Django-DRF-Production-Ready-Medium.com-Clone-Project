@@ -1,6 +1,7 @@
 """
 Project Base settings.
 """
+
 import os
 from datetime import timedelta
 from pathlib import Path

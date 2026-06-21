@@ -1,10 +1,12 @@
 """
 Search app urls.
 """
+
 from django.urls import path
+
 from .views import ArticleElasticSearchView
 
-urlspatterns = [
+urlpatterns = [
     path(
         "search/",
         ArticleElasticSearchView.as_view({"get": "list"}),
