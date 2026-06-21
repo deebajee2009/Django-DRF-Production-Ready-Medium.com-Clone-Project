@@ -1,6 +1,7 @@
 """
 Rating's app exceptions.
 """
+
 from rest_framework.exceptions import APIException
 
 

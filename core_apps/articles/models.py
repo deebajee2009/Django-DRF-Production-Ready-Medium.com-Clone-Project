@@ -1,16 +1,16 @@
 """
 Articles app models.
 """
+
 from autoslug import AutoSlugField
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.db.models import Avg
 from django.utils.translation import gettext_lazy as _
 from taggit.managers import TaggableManager
-from django.db.models import Avg
 
+from core_apps.articles.services.read_time_engine import ArticleReadTimeEngine
 from core_apps.common.models import TimeStampedModel
-from services.read_time_engine import ArticleReadTimeEngine
-
 
 User = get_user_model()
 
@@ -28,20 +28,17 @@ class Clap(TimeStampedModel):
 
 
 class Article(TimeStampedModel):
-    author = models.ForeignKey(User, on_delete=models.CASCADE,
-        related_name="articles")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="articles")
     title = models.CharField(verbose_name=_("Title"), max_length=255)
-    slug = AutoSlugField(populate_from="title", always_update=True,
-        unique=True)
-    description = models.CharField(verbose_name=_("description"),
-        max_length=255)
+    slug = AutoSlugField(populate_from="title", always_update=True, unique=True)
+    description = models.CharField(verbose_name=_("description"), max_length=255)
     body = models.TextField(verbose_name=_("article content"))
-    banner_image = models.ImageField(verbose_name=_("banner image"),
-        default="/profile_default.png")
+    banner_image = models.ImageField(
+        verbose_name=_("banner image"), default="/profile_default.png"
+    )
     tags = TaggableManager()
 
-    claps = models.ManyToManyField(User, through=Clap,
-                                   related_name="clapped_articles")
+    claps = models.ManyToManyField(User, through=Clap, related_name="clapped_articles")
 
     def __str__(self):
         return f"{self.author.first_name}'s article"
@@ -64,9 +61,7 @@ class Article(TimeStampedModel):
         # return None
 
         # better version
-        avg = self.ratings.aggregate(
-            avg_rating=Avg("rating")
-        )["avg_rating"]
+        avg = self.ratings.aggregate(avg_rating=Avg("rating"))["avg_rating"]
 
         return round(avg, 2) if avg is not None else None
 
@@ -92,6 +87,7 @@ class ArticleView(TimeStampedModel):
 
     @classmethod
     def record_view(cls, article, user, viewer_ip):
-        view, _ = cls.objects.get_or_create(article=article, user=user,
-                                            viewer_ip=viewer_ip)
+        view, _ = cls.objects.get_or_create(
+            article=article, user=user, viewer_ip=viewer_ip
+        )
         view.save()

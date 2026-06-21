@@ -1,14 +1,12 @@
 """
 Users app admin handling.
 """
+
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUseradmin
 from django.utils.translation import gettext_lazy as _
 
-from core_apps.users.forms import (
-    UserChangeForm,
-    UserCreationForm,
-)
+from core_apps.users.forms import UserChangeForm, UserCreationForm
 from core_apps.users.models import User
 
 
@@ -16,6 +14,7 @@ class UserAdmin(BaseUseradmin):
     """
     User admin management.
     """
+
     ordering = ["email"]
     form = UserChangeForm
     add_form = UserCreationForm
@@ -30,7 +29,18 @@ class UserAdmin(BaseUseradmin):
     fieldsets = (
         (_("Login Credentials"), {"fields": ("email", "password")}),
         (_("Personal Info"), {"fields": ("first_name", "last_name")}),
-        (_("Permissions and Groups"), {"fields": ("is_active", "is_staff", "is_superuser", "groups", "user_permissions")}),
+        (
+            _("Permissions and Groups"),
+            {
+                "fields": (
+                    "is_active",
+                    "is_staff",
+                    "is_superuser",
+                    "groups",
+                    "user_permissions",
+                )
+            },
+        ),
         (_("Important Dates"), {"fields": ("last_login", "date_joined")}),
     )
     add_fieldsets = (

@@ -1,12 +1,10 @@
 """
 Users App models module.
 """
+
 import uuid
 
-from django.contrib.auth.models import (
-    AbstractBaseUser,
-    PermissionsMixin,
-)
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
@@ -18,6 +16,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     """
     Class for User object.
     """
+
     pkid = models.BigAutoField(primary_key=True, editable=False)
     id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     first_name = models.CharField(
@@ -38,7 +37,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     date_joined = models.DateTimeField(default=timezone.now)
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = "email"
 
     REQUIRED_FIELDS = ["first_name", "last_name"]
 

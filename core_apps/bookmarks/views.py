@@ -1,15 +1,17 @@
 """
 Bookmark app views.
 """
+
 import uuid
 
-from rest_framework import generics, permissions
-from .models import Bookmark
-from .serializers import BookmarkSerializer
 from django.db import IntegrityError
-from rest_framework.exceptions import ValidationError, NotFound
+from rest_framework import generics, permissions
+from rest_framework.exceptions import NotFound, ValidationError
 
 from core_apps.articles.models import Article
+
+from .models import Bookmark
+from .serializers import BookmarkSerializer
 
 
 class BookmarkCreateView(generics.CreateAPIView):
@@ -18,7 +20,7 @@ class BookmarkCreateView(generics.CreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def perform_create(self, serializer):
-        article_id = self.kwargs.get('article_id')
+        article_id = self.kwargs.get("article_id")
 
         if article_id:
             try:
@@ -36,7 +38,7 @@ class BookmarkCreateView(generics.CreateAPIView):
 
 class BookmarkDestroyView(generics.DestroyAPIView):
     queryset = Bookmark.objects.all()
-    lookup_field = 'article_id'
+    lookup_field = "article_id"
     permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self):

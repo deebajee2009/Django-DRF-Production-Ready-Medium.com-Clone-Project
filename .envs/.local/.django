@@ -4,5 +4,8 @@ DOMAIN=localhost:8080
 EMAIL_PORT=1025
 CELERY_FLOWER_USER=admin
 CELERY_FLOWER_PASSWORD=Pass123456
+DJANGO_ENV=local
+
+DATABASE_URL=postgres://davood:davood@postgres:5432/authers-live
 
 SIGNING_KEY=Ekz7epGPmkoEHinbW18PTIU1ReqLgdmppONQUzRB3v6ZD5xPkjg

@@ -1,8 +1,8 @@
 """
 Users app views.
 """
-from django.contrib.auth import get_user_model
 
+from django.contrib.auth import get_user_model
 from rest_framework.generics import RetrieveUpdateAPIView
 from rest_framework.permissions import IsAuthenticated
 
@@ -13,6 +13,7 @@ class CustomUserDetailsView(RetrieveUpdateAPIView):
     """
     Docstring for CustomUserDetailsView
     """
+
     serializer_class = UserSerializer
     permission_classes = (IsAuthenticated,)
 
@@ -21,4 +22,3 @@ class CustomUserDetailsView(RetrieveUpdateAPIView):
 
     def get_queryset(self):
         return get_user_model().objects.none()
-

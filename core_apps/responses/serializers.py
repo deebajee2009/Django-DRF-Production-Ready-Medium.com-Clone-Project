@@ -1,19 +1,15 @@
 """
 Response app serializers.
 """
+
 from rest_framework import serializers
+
 from .models import Response
 
 
 class ResponseSerializer(serializers.ModelSerializer):
-    user_first_name = serializers.CharField(
-        source="user.first_name",
-        read_only=True
-    )
-    article_title = serializers.CharField(
-        source="article.title",
-        read_only=True
-    )
+    user_first_name = serializers.CharField(source="user.first_name", read_only=True)
+    article_title = serializers.CharField(source="article.title", read_only=True)
 
     class Meta:
         model = Response
@@ -23,5 +19,5 @@ class ResponseSerializer(serializers.ModelSerializer):
             "article_title",
             "parent_response",
             "content",
-            "created_at"
+            "created_at",
         ]

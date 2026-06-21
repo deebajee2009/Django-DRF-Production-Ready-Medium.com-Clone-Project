@@ -1,12 +1,14 @@
 """
 Renderers module for articles app.
 """
+
 import json
+
 from rest_framework.renderers import JSONRenderer
 
 
 class ArticleJSONRenderer(JSONRenderer):
-    charset = 'utf-8'
+    charset = "utf-8"
 
     def render(self, data, accepted_media_type=None, renderer_context=None):
 
@@ -21,7 +23,7 @@ class ArticleJSONRenderer(JSONRenderer):
 
 
 class ArticlesJSONRenderer(JSONRenderer):
-    charset = 'utf-8'
+    charset = "utf-8"
 
     def render(self, data, accepted_media_type=None, renderer_context=None):
 

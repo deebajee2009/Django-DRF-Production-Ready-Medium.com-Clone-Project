@@ -1,6 +1,7 @@
 """
 Articles app pagination module.
 """
+
 from rest_framework.pagination import PageNumberPagination
 
 

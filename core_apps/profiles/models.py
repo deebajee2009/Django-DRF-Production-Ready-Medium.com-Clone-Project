@@ -1,6 +1,7 @@
 """
 Profiles app models.
 """
+
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -18,8 +19,7 @@ class Profile(TimeStampedModel):
         FEMALE = "F", _("Female")
         OTHER = "O", _("Other")
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE,
-                                related_name="profile")
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     phone_number = PhoneNumberField(
         verbose_name=_("phone number"), max_length=30, default="+989199573434"
     )
@@ -32,7 +32,9 @@ class Profile(TimeStampedModel):
         default=Gender.OTHER,
         max_length=20,
     )
-    country = CountryField(verbose_name=_("country"), default="IR", blank=False, null=False)
+    country = CountryField(
+        verbose_name=_("country"), default="IR", blank=False, null=False
+    )
     city = models.CharField(
         verbose_name=_("city"),
         max_length=180,
@@ -47,7 +49,10 @@ class Profile(TimeStampedModel):
         verbose_name=_("twitter handle"), max_length=20, blank=True
     )
     followers = models.ManyToManyField(
-        "self", symmetrical=False, related_name="following", blank=True,
+        "self",
+        symmetrical=False,
+        related_name="following",
+        blank=True,
     )
 
     def __str__(self):

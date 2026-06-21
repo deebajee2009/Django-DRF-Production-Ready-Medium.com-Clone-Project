@@ -1,9 +1,9 @@
 """
 Profiles app serializers.
 """
-from rest_framework import serializers
 
 from django_countries.serializer_fields import CountryField
+from rest_framework import serializers
 
 from .models import Profile
 
@@ -12,6 +12,7 @@ class ProfileSerializer(serializers.SerializerMethodField):
     """
     Docstring for ProfileSerializer
     """
+
     first_name = serializers.CharField(source="user.first_name")
     last_name = serializers.CharField(source="user.last_name")
     email = serializers.EmailField(source="user.email")
@@ -33,7 +34,7 @@ class ProfileSerializer(serializers.SerializerMethodField):
             "country",
             "city",
             "twitter_handle",
-            "about_me"
+            "about_me",
         ]
 
     def get_full_name(self, obj):
@@ -49,6 +50,7 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
     """
     Docstring for UpdateProfileSerializer
     """
+
     coountry = CountryField(name_only=True)
 
     class Meta:
@@ -60,7 +62,7 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
             "gender",
             "country",
             "city",
-            "twitter_handle"
+            "twitter_handle",
         ]
 
 
@@ -68,6 +70,7 @@ class FollowingSerializer(serializers.ModelSerializer):
     """
     Docstring for FollowingSerializer
     """
+
     first_name = serializers.CharField(source="user.first_name")
     last_name = serializers.CharField(source="user.last_name")
 

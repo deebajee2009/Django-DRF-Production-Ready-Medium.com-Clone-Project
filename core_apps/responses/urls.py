@@ -1,11 +1,10 @@
 """
 Response app urls module.
 """
+
 from django.urls import path
-from .views import (
-    ResponseListCreateView,
-    ResponseUpdateDeleteView,
-)
+
+from .views import ResponseListCreateView, ResponseUpdateDeleteView
 
 urlpatterns = [
     path(
@@ -17,5 +16,5 @@ urlpatterns = [
         "<uuid:id>/",
         ResponseUpdateDeleteView.as_view(),
         name="response-update-destroy",
-    )
+    ),
 ]
