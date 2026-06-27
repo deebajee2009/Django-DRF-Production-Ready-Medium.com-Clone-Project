@@ -1,0 +1,7 @@
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=authers-live
+POSTGRES_USER=fddghtyyuuy
+POSTGRES_PASSWORD=GFGFGHyhgghFGHGFGNjhgjhj
+
+DATABASE_URL=postgres://fddghtyyuuy:GFGFGHyhgghFGHGFGNjhgjhj@postgres:5432/authers-live

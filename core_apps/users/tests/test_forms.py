@@ -11,7 +11,7 @@ def test_user_creation_form_valid_data():
     data = {
         "first_name": "John",
         "last_name": "Doe",
-        "email": "john.doe@example.com",
+        "email": "john.doe@training.com",
         "password1": "secure_pass",
         "password2": "secure_pass",
     }
@@ -34,4 +34,4 @@ def test_user_creation_form_invalid_data():
 
     form = UserCreationForm(data)
     assert not form.is_valid()
-    assert  "email" in form.errors
+    assert "email" in form.errors

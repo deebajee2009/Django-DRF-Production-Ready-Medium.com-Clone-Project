@@ -41,7 +41,7 @@ def test_to_representation_super_user(super_user):
 @pytest.mark.django_db
 def test_custom_register_serializer(mock_request):
     valid_data = {
-        "email": "test@example.com",
+        "email": "test@trainig.com",
         "first_name": "John",
         "last_name": "Doe",
         "password1": "test_password",
@@ -56,7 +56,7 @@ def test_custom_register_serializer(mock_request):
     assert user.last_name == valid_data["last_name"]
 
     invalid_data = {
-         "email": "test@example.com",
+         "email": "test@training.com",
          "first_name": "John",
          "last_name": "Doe",
          "password1": "test_pas",

@@ -64,3 +64,9 @@ pytest-cov:
 
 pytest-cov-html:
 	docker compose -f local.yml run --rm api pytest -p no:warnings --cov=. --cov-report html
+
+check-deploy:
+	docker compose -f local.yml run --rm api python manage.py check --deploy
+
+install-portainer:
+	sudo docker run -d -p 8000:8000 --network=reverseproxy_nw --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
