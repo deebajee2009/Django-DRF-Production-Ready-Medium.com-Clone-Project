@@ -17,7 +17,6 @@ services:
     container_name: api
     image: authors-api
     volumes:
-      - static_volume:/app/staticfiles
       - media_volume:/app/mediafiles
     env_file:
       - ./.envs/.production/.django

@@ -16,18 +16,18 @@ ROOT_DIR = Path(__file__).resolve().parent.parent.parent
 
 APP_DIR = ROOT_DIR / "core_apps"
 
-django_env = os.environ.get("DJANGO_ENV", "local")
+# django_env = os.environ.get("DJANGO_ENV", "local")
 
-if django_env == "production":
-    env_file = ROOT_DIR / ".envs" / ".production" / ".django"
-else:
-    env_file = ROOT_DIR / ".envs" / ".local" / ".django"
+# if django_env == "production":
+#     env_file = ROOT_DIR / ".envs" / ".production" / ".django"
+# else:
+#     env_file = ROOT_DIR / ".envs" / ".local" / ".django"
 
 
-if env_file.exists():
-    environ.Env.read_env(str(env_file))
+# if env_file.exists():
+#     environ.Env.read_env(str(env_file))
 
-DEBUG = env.bool("DJANGO_DEBUG", False)
+# DEBUG = env.bool("DJANGO_DEBUG", False)
 
 
 # Application definition

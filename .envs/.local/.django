@@ -1,3 +1,4 @@
+DJANGO_SETTINGS_MODULE=authors_api.settings.local
 CELERY_BROKER=redis://redis:6379/0
 
 DOMAIN=localhost:8080

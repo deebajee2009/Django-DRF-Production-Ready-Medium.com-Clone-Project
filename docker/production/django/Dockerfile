@@ -31,7 +31,7 @@ WORKDIR ${APP_HOME}
 
 RUN addgroup --system django && \
     adduser --system --ingroup django django && \
-    mkdir -p &{APP_HOME}/staticfiles && \
+    mkdir -p ${APP_HOME}/staticfiles && \
     chown django:django ${APP_HOME}/staticfiles && \
     chmod 775 ${APP_HOME}/staticfiles
 
