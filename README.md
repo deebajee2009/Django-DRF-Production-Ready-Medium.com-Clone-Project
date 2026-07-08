@@ -1,4 +1,4 @@
-# Django DRF Production ready Medium.com Clone project
+# Django DRF Production ready Medium.com Clone project with Elasticsearch + Celery + Flower + Mail Handling + DB Backup & Restor + Docker
 
 In this learning project we aimed to fully implement from local to development stages so that In local stage we needed special capabilities and either for production.
 
@@ -21,8 +21,11 @@ In this learning project we aimed to fully implement from local to development s
 - DB Backup & Restore
 - Linter and Formatter
 - Mail Handling
-- Tests coverage
+- Tests coverage + Tests
 - Reverse Proxy with Proxy manager and Portainer
+- Custom renderers
+- Shell Scripting
+- Custom Admin panels
 
 ## Notes
 For learning purpose .envs/.production is included in github
